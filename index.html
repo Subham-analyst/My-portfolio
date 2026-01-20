@@ -3,16 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nicol Rider | Portfolio</title>
+    <title>Subham Raj | Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
-
-<script src="index.js"></script>
-</body>
-</html>
-
-
 <body>
 
     <header>
@@ -31,13 +25,12 @@
     <section class="intro-section" id="home">
         <div class="container">
             <div class="profile-pic">
-                <img src="Gemini_Generated_Image_396tsb396tsb396t.png
-                " alt="Profile Picture">
+                <img src="Gemini_Generated_Image_396tsb396tsb396t.png" alt="Profile Picture">
             </div>
             <div class="intro-text">
                 <h1>Hello</h1>
                 <h3>A Bit About Me</h3>
-                <p>I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to tell a story and let your users know a little more about you.</p>
+                <p>I'm a Data Science enthusiast focused on turning complex data into actionable insights.</p>
                 
                 <div class="button-group">
                     <a href="#resume" class="btn btn-yellow">Resume</a>
@@ -53,165 +46,75 @@
             <h2>Resume</h2>
             <p>My Professional Journey</p>
         </div>
-
-        <div class="resume-wrapper">
-            <div class="resume-column">
-                <h3 class="col-title">Experience</h3>
-                
-                <div class="resume-card">
-                    <span class="date">2023 - Present</span>
-                    <h4>Senior Editor</h4>
-                    <span class="company">Creative Studio Inc.</span>
-                    <p>Leading a team of post-production editors, managing workflow, and ensuring final cut quality for commercial clients.</p>
-                </div>
-
-                <div class="resume-card">
-                    <span class="date">2020 - 2023</span>
-                    <h4>Junior Video Editor</h4>
-                    <span class="company">Media House</span>
-                    <p>Collaborated with directors to assemble raw footage into polished content for social media campaigns.</p>
-                </div>
-            </div>
-
-            <div class="resume-column">
-                <h3 class="col-title">Education</h3>
-                
-                <div class="resume-card">
-                    <span class="date">2016 - 2020</span>
-                    <h4>BA in Film & Media</h4>
-                    <span class="company">University of Arts</span>
-                    <p>Focused on visual storytelling, color grading, and sound design.</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- skill section -->
-        <div class="skills-bar">
-            <h3>Skills</h3>
-            <div class="skill">
-                <span>Python</span>
-                <span class="Present">75%</span>
-                <div class="bar"><div class="fill" style="width: 90%"></div></div>
-            </div>
-            <div class="skill">
-                <span>Statistics</span>
-                <span class="Present">65%</span>
-                <div class="bar"><div class="fill" style="width: 65%"></div></div>
-            </div>
-            <div class="skill">
-                <span>SQL</span>
-                <span class="Present">65%</span>
-                <div class="bar"><div class="fill" style="width: 65%"></div></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- project section -->
+        </section>
 
     <section id="projects" class="section-container alt-bg">
         <div class="section-title">
             <h2>Projects</h2>
             <p>Some of my best work</p>
         </div>
+        </section>
 
-        <div class="project-grid">
-            <div class="project-card">
-                <div class="project-image" style="background-color: #E6A32E;">
-                    <span>Project Image 1</span>
-                </div>
-                <div class="project-info">
-                    <h4>Music Video Edit</h4>
-                    <p>A fast-paced edit for a local rock band.</p>
-                    <a href="#">View Project &rarr;</a>
-                </div>
-            </div>
+    <section id="contact" class="section-container">
+        <div class="section-title">
+            <h2>Let's Build Something Great</h2>
+            <p>Drop me a message to start our collaboration</p>
+        </div>
 
-            <div class="project-card">
-                <div class="project-image" style="background-color: #F05146;">
-                    <span>Project Image 2</span>
+        <div class="contact-wrapper">
+            <form class="contact-form" onsubmit="sendHireEmail(event)">
+                <div class="input-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
                 </div>
-                <div class="project-info">
-                    <h4>Corporate Documentary</h4>
-                    <p>Storytelling focus for a tech startup.</p>
-                    <a href="#">View Project &rarr;</a>
+                <div class="input-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
                 </div>
-            </div>
+                <div class="input-group">
+                    <textarea name="message" placeholder="Tell me about your project..." rows="5" required></textarea>
+                </div>
+                
+                <div class="hire-me-container">
+                    <button type="submit" class="submit-btn">
+                        <span>Send Proposal</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
 
-            <div class="project-card">
-                <div class="project-image" style="background-colo   r: #8EC8D1;">
-                    <span>Project Image 3</span>
+                <div id="thankYouMsg" style="display:none; color: green; margin-top: 20px; font-weight: bold;">
+                    Thanks! Opening your email app now...
                 </div>
-                <div class="project-info">
-                    <h4>Social Media Shorts</h4>
-                    <p>High engagement reels for Instagram.</p>
-                    <a href="https://gemini.google.com/app/df897101ba0af0ce" target="_blank">View Project &rarr;</a>
+            </form>
+
+            <div class="info-sidebar">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>subhamraj8569@gmail.com</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Available Worldwide / Remote</span>
+                    </div>
+                </div>
+
+                <div class="social-container">
+                    <p>Connect with me:</p>
+                    <div class="social-links">
+                        <a href="https://github.com/Subham-analyst" target="_blank" class="social-icon github"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/subhamraj18/" target="_blank" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://twitter.com/yourusername" target="_blank" class="social-icon twitter"><i class="fab fa-x-twitter"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-     
 
-    <!-- contact section -->
-
-    <section id="contact" class="section-container">
-    <div class="section-title">
-        <h2>Let's Build Something Great</h2>
-        <p>Select a service to start our collaboration</p>
-    </div>
-
-    <div class="contact-wrapper">
-        <form class="contact-form">
-            <div class="input-group">
-                <input type="text" name="name" placeholder="Your Name" required>
-            </div>
-            <div class="input-group">
-                <input type="email" name="email" placeholder="Your Email" required>
-            </div>
-            <div class="input-group">
-                <textarea name="message" placeholder="Tell me about your project..." rows="5"></textarea>
-            </div>
-            
-            <div class="hire-me-container">
-                <button type="submit" class="submit-btn">
-                    <span>Send Proposal</span>
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
-        </form>
-
-        <div class="info-sidebar">
-            <div class="contact-info">
-                <div class="info-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>yourname@email.com</span>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Available Worldwide / Remote</span>
-                </div>
-            </div>
-
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-<section id="contact" class="section-container">
-    <div class="social-container">
-        <p>Connect with me:</p>
-        <div class="social-links">
-            <a href="https://github.com/Subham-analyst" target="_blank" class="social-icon github">
-    <i class="fab fa-github"></i>
-</a>
-
-<a href="https://www.linkedin.com/in/subhamraj18/" target="_blank" class="social-icon linkedin">
-    <i class="fab fa-linkedin-in"></i>
-</a>
-
-<a href="https://twitter.com/yourusername" target="_blank" class="social-icon twitter">
-    <i class="fab fa-x-twitter"></i>
-</a>
-
-        </div>
-    </div>
-</section>
-        </div>
-    </div>
-</section>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your Public Key
+   })();
+</script>
+<script src="index.js"></script>
+</body>
+</html>
