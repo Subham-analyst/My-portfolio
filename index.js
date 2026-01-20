@@ -1,58 +1,27 @@
-/* ===============================
-   Smooth scroll for nav links
-================================ */
-document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        target.scrollIntoView({ behavior: 'smooth' });
-    });
-});
+function sendHireEmail(event) {
+    event.preventDefault();
 
-/* ===============================
-   Reveal sections on scroll
-================================ */
-const sections = document.querySelectorAll('.section-container');
+    const name = document.querySelector("input[name='name']").value;
+    const email = document.querySelector("input[name='email']").value;
+    const message = document.querySelector("textarea[name='message']").value;
 
-const revealObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        }
-    });
-}, { threshold: 0.2 });
+    const subject = encodeURIComponent("Hiring / Contact Request from Portfolio");
+    const body = encodeURIComponent(
+        `Hello Subham,\n\n` +
+        `You have received a new message from your portfolio.\n\n` +
+        `Name: ${name}\n` +
+        `Email: ${email}\n\n` +
+        `Message:\n${message}\n\n` +
+        `Regards,\nPortfolio Website`
+    );
 
-sections.forEach(section => {
-    section.classList.add('hidden');
-    revealObserver.observe(section);
-});
+    // Open Gmail / Email app
+    window.location.href =
+        `mailto:subhamraj8569@gmail.com?subject=${subject}&body=${body}`;
 
-/* ===============================
-   Animate skill bars
-================================ */
-const skillBars = document.querySelectorAll('.fill');
+    // Show Thank You message
+    document.getElementById("thankYouMsg").style.display = "block";
 
-const skillObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.width = entry.target.dataset.width;
-        }
-    });
-}, { threshold: 0.5 });
-
-skillBars.forEach(bar => {
-    bar.dataset.width = bar.style.width;
-    bar.style.width = "0";
-    skillObserver.observe(bar);
-});
-
-/* ===============================
-   Contact form submit
-================================ */
-const form = document.querySelector('.contact-form');
-
-form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    alert("✅ Thank you! Your proposal has been sent.");
-    form.reset();
-});
+    // Clear form
+    event.target.reset();
+}
