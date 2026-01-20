@@ -34,7 +34,6 @@
                 <img src="Gemini_Generated_Image_396tsb396tsb396t.png
                 " alt="Profile Picture">
             </div>
-            
             <div class="intro-text">
                 <h1>Hello</h1>
                 <h3>A Bit About Me</h3>
@@ -139,7 +138,7 @@
             </div>
 
             <div class="project-card">
-                <div class="project-image" style="background-color: #8EC8D1;">
+                <div class="project-image" style="background-colo   r: #8EC8D1;">
                     <span>Project Image 3</span>
                 </div>
                 <div class="project-info">
@@ -162,46 +161,57 @@
 
     <div class="contact-wrapper">
         <form class="contact-form">
-            <div class="service-selector">
-                <label>I'm looking for help with:</label>
-                <div class="chip-group">
-                    <input type="checkbox" id="ml" name="service" value="ML">
-                    <label for="ml" class="chip">Machine Learning</label>
-
-                    <input type="checkbox" id="da" name="service" value="Analytics">
-                    <label for="da" class="chip">Data Analytics</label>
-
-                    <input type="checkbox" id="viz" name="service" value="Viz">
-                    <label for="viz" class="chip">Visualization</label>
-
-                    <input type="checkbox" id="consult" name="service" value="Consulting">
-                    <label for="consult" class="chip">Consulting</label>
-
-                </div>
+            <div class="input-group">
+                <input type="text" name="name" placeholder="Your Name" required>
             </div>
-
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" placeholder="Your Email" required>
-                </div>
+            <div class="input-group">
+                <input type="email" name="email" placeholder="Your Email" required>
             </div>
-
-            <div class="form-group">
-                <label>Project Details</label>
-                <textarea placeholder="Tell me about your data goals..." rows="4"></textarea>
+            <div class="input-group">
+                <textarea name="message" placeholder="Tell me about your project..." rows="5"></textarea>
             </div>
-
+            
             <div class="hire-me-container">
-                <button type="submit" class="submit-btn hire-btn">
+                <button type="submit" class="submit-btn">
                     <span>Send Proposal</span>
-                    <i class="arrow-icon">→</i>
+                    <i class="fas fa-paper-plane"></i>
                 </button>
             </div>
         </form>
+
+        <div class="info-sidebar">
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>yourname@email.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Available Worldwide / Remote</span>
+                </div>
+            </div>
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<section id="contact" class="section-container">
+    <div class="social-container">
+        <p>Connect with me:</p>
+        <div class="social-links">
+            <a href="https://github.com/Subham-analyst" target="_blank" class="social-icon github">
+    <i class="fab fa-github"></i>
+</a>
+
+<a href="https://www.linkedin.com/in/subhamraj18/" target="_blank" class="social-icon linkedin">
+    <i class="fab fa-linkedin-in"></i>
+</a>
+
+<a href="https://twitter.com/yourusername" target="_blank" class="social-icon twitter">
+    <i class="fab fa-x-twitter"></i>
+</a>
+
+        </div>
+    </div>
+</section>
+        </div>
     </div>
 </section>
