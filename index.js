@@ -1,106 +1,84 @@
 /* ===============================
-   Mobile Menu Toggle
+   Firebase & Email Setup
 ================================ */
-const menuToggle = document.getElementById('mobile-menu');
-const navMenu = document.querySelector('.nav-menu');
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-});
+const firebaseConfig = {
+  apiKey: "YOUR_FIREBASE_API_KEY",
+  projectId: "YOUR_PROJECT_ID",
+  appId: "YOUR_APP_ID"
+};
 
-// Close menu when a link is clicked
-document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+/* ===============================
+   Smooth scroll for nav links
+================================ */
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
     });
 });
 
 /* ===============================
-   Scroll Animations (Observer)
+   Contact Form: Database + Email
 ================================ */
-const observerOptions = { threshold: 0.1 };
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            
-            // Trigger skill bars only when section is visible
-            if (entry.target.querySelector('.fill')) {
-                const bars = entry.target.querySelectorAll('.fill');
-                bars.forEach(bar => bar.style.width = bar.dataset.width);
-            }
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.section-container').forEach(section => {
-    section.style.opacity = "0";
-    section.style.transition = "opacity 1s ease, transform 1s ease";
-    section.style.transform = "translateY(50px)";
-    
-    // Add class for animation
-    section.classList.add('hidden-section');
-    observer.observe(section);
-});
-
-// Helper to handle the transition via CSS class
-const styleSheet = document.createElement("style");
-styleSheet.innerText = `
-    .visible { opacity: 1 !important; transform: translateY(0) !important; }
-`;
-document.head.appendChild(styleSheet);
-
-
-/* ===============================
-   SECURE FORM SUBMISSION (Mock Database)
-================================ */
-const form = document.getElementById('secureForm');
-const statusMsg = document.getElementById('form-status');
+const form = document.querySelector('.contact-form');
 
 form.addEventListener('submit', async function (e) {
     e.preventDefault();
     
-    // 1. Basic Security: Check Honeypot (Anti-Spam)
-    const honeypot = form.querySelector('input[name="honeypot"]');
-    if (honeypot.value) { 
-        console.warn("Spam bot detected"); 
-        return; 
-    }
+    const submitBtn = form.querySelector('.submit-btn');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = "<span>Processing...</span>";
 
-    // 2. Data Collection
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
+    // Gather Form Data
+    const name = form.querySelector('input[placeholder="Your Name"]').value;
+    const email = form.querySelector('input[placeholder="Your Email"]').value;
+    const details = form.querySelector('textarea').value;
+    const services = Array.from(form.querySelectorAll('input[name="service"]:checked'))
+                          .map(cb => cb.value).join(", ");
 
-    // 3. Sanitization (Example of cleaning input before sending)
-    // In a real app, the backend MUST also sanitize.
-    const cleanInput = (input) => {
-        const div = document.createElement('div');
-        div.textContent = input;
-        return div.innerHTML;
-    }
-    
-    data.name = cleanInput(data.name);
-    data.message = cleanInput(data.message);
-
-    statusMsg.textContent = "Sending securely...";
-    statusMsg.style.color = "blue";
-
-    // 4. API Call (Simulating a Database Connection)
-    // To make this real, replace the URL below with a service like Formspree.io or your own backend
-    // Example: fetch('https://formspree.io/f/YOUR_ID', { ... })
-    
     try {
-        // Simulating network delay
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        // 1. SAVE TO DATABASE (Firebase)
+        await addDoc(collection(db, "recruiter_leads"), {
+            name, email, services, details, date: new Date()
+        });
 
-        // Success Response
-        statusMsg.textContent = "✅ Message saved to database successfully!";
-        statusMsg.style.color = "green";
+        // 2. SEND EMAIL NOTIFICATION (EmailJS)
+        await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+            from_name: name,
+            reply_to: email,
+            message: details,
+            chosen_services: services
+        });
+
+        alert("✅ Success! Data saved and notification sent to Subham.");
         form.reset();
-        
+
     } catch (error) {
-        statusMsg.textContent = "❌ Error connecting to server.";
-        statusMsg.style.color = "red";
+        console.error("Error:", error);
+        alert("❌ Something went wrong. Check the console.");
+    } finally {
+        submitBtn.innerHTML = originalText;
     }
+});
+
+/* ===============================
+   Animations (Kept from original)
+================================ */
+const sections = document.querySelectorAll('.section-container');
+const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+    });
+}, { threshold: 0.2 });
+
+sections.forEach(section => {
+    section.classList.add('hidden');
+    revealObserver.observe(section);
 });
