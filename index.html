@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subham Raj | Portfolio</title>
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline';">
+    <title>Subham Raj | Data Science Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+
+    <div class="background-animation"></div>
 
     <header>
         <div class="logo">
@@ -15,106 +17,194 @@
             <strong>Subham Raj</strong> 
             <span class="title">Data Science</span>
         </div>
-        <nav>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <nav class="nav-menu">
+            <a href="#home">Home</a>
             <a href="#resume">Resume</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
-    <section class="intro-section" id="home">
-        <div class="container">
-            <div class="profile-pic">
-                <img src="Gemini_Generated_Image_396tsb396tsb396t.png" alt="Profile Picture">
-            </div>
-            <div class="intro-text">
-                <h1>Hello</h1>
-                <h3>A Bit About Me</h3>
-                <p>I'm a Data Science enthusiast focused on turning complex data into actionable insights.</p>
-                
-                <div class="button-group">
-                    <a href="#resume" class="btn btn-yellow">Resume</a>
-                    <a href="#projects" class="btn btn-red">Projects</a>
-                    <a href="#contact" class="btn btn-blue">Contact</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="resume" class="section-container">
-        <div class="section-title">
-            <h2>Resume</h2>
-            <p>My Professional Journey</p>
-        </div>
-        </section>
-
-    <section id="projects" class="section-container alt-bg">
-        <div class="section-title">
-            <h2>Projects</h2>
-            <p>Some of my best work</p>
-        </div>
-        </section>
-
-    <section id="contact" class="section-container">
-        <div class="section-title">
-            <h2>Let's Build Something Great</h2>
-            <p>Drop me a message to start our collaboration</p>
-        </div>
-
-        <div class="contact-wrapper">
-            <form class="contact-form" onsubmit="sendHireEmail(event)">
-                <div class="input-group">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                </div>
-                <div class="input-group">
-                    <input type="email" name="email" placeholder="Your Email" required>
-                </div>
-                <div class="input-group">
-                    <textarea name="message" placeholder="Tell me about your project..." rows="5" required></textarea>
+    <main>
+        <section class="intro-section" id="home">
+            <div class="container">
+                <div class="profile-pic">
+                    <img src="Gemini_Generated_Image_396tsb396tsb396t.png" alt="Subham Raj">
                 </div>
                 
-                <div class="hire-me-container">
-                    <button type="submit" class="submit-btn">
-                        <span>Send Proposal</span>
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </div>
-
-                <div id="thankYouMsg" style="display:none; color: green; margin-top: 20px; font-weight: bold;">
-                    Thanks! Opening your email app now...
-                </div>
-            </form>
-
-            <div class="info-sidebar">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>subhamraj8569@gmail.com</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Available Worldwide / Remote</span>
-                    </div>
-                </div>
-
-                <div class="social-container">
-                    <p>Connect with me:</p>
-                    <div class="social-links">
-                        <a href="https://github.com/Subham-analyst" target="_blank" class="social-icon github"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/subhamraj18/" target="_blank" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://twitter.com/yourusername" target="_blank" class="social-icon twitter"><i class="fab fa-x-twitter"></i></a>
+                <div class="intro-text">
+                    <h1>Hello</h1>
+                    <h3>Data Scientist & Analyst</h3>
+                    <p>Transforming complex data into actionable insights. Expert in Python, SQL, and Statistical Analysis.</p>
+                    
+                    <div class="button-group">
+                        <a href="#resume" class="btn btn-yellow">Resume</a>
+                        <a href="#projects" class="btn btn-red">Work</a>
+                        <a href="#contact" class="btn btn-blue">Hire Me</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your Public Key
-   })();
-</script>
-<script src="index.js"></script>
+        <section id="resume" class="section-container glass-effect">
+            <div class="section-title">
+                <h2>Resume</h2>
+                <p>My Professional Journey</p>
+            </div>
+
+            <div class="resume-wrapper">
+                <div class="resume-column">
+                    <h3 class="col-title">Experience</h3>
+                    
+                    <div class="resume-card">
+                        <span class="date">2023 - Present</span>
+                        <h4>Senior Data Analyst</h4>
+                        <span class="company">Tech Solutions Inc.</span>
+                        <p>Leading predictive modeling initiatives and dashboard optimization.</p>
+                    </div>
+
+                    <div class="resume-card">
+                        <span class="date">2020 - 2023</span>
+                        <h4>Junior Analyst</h4>
+                        <span class="company">Data Corp</span>
+                        <p>Cleaned datasets and visualized trends using Python and Tableau.</p>
+                    </div>
+                </div>
+
+                <div class="resume-column">
+                    <h3 class="col-title">Education</h3>
+                    <div class="resume-card">
+                        <span class="date">2016 - 2020</span>
+                        <h4>B.Tech in Computer Science</h4>
+                        <span class="company">University of Technology</span>
+                        <p>Specialized in Machine Learning and Database Management.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skills-bar">
+                <h3>Technical Skills</h3>
+                <div class="skill">
+                    <span>Python & R</span>
+                    <span>90%</span>
+                    <div class="bar"><div class="fill" data-width="90%"></div></div>
+                </div>
+                <div class="skill">
+                    <span>SQL / Database</span>
+                    <span>85%</span>
+                    <div class="bar"><div class="fill" data-width="85%"></div></div>
+                </div>
+                <div class="skill">
+                    <span>Machine Learning</span>
+                    <span>75%</span>
+                    <div class="bar"><div class="fill" data-width="75%"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section-container">
+            <div class="section-title">
+                <h2>Projects</h2>
+                <p>Data Science in Action</p>
+            </div>
+
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(45deg, #E6A32E, #f4b400);">
+                        <span>Sales Forecasting</span>
+                    </div>
+                    <div class="project-info">
+                        <h4>Sales Prediction Model</h4>
+                        <p>Using ARIMA models to predict Q4 sales with 95% accuracy.</p>
+                        <a href="#" rel="noopener noreferrer">View Code &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(45deg, #F05146, #ff5252);">
+                        <span>Customer Churn</span>
+                    </div>
+                    <div class="project-info">
+                        <h4>Churn Analysis</h4>
+                        <p>Identified key factors in customer loss using Logistic Regression.</p>
+                        <a href="#" rel="noopener noreferrer">View Case Study &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(45deg, #8EC8D1, #4ecdc4);">
+                        <span>Visualization</span>
+                    </div>
+                    <div class="project-info">
+                        <h4>Interactive Dashboards</h4>
+                        <p>PowerBI dashboards for real-time inventory tracking.</p>
+                        <a href="https://gemini.google.com/app/df897101ba0af0ce" target="_blank" rel="noopener noreferrer">View Live &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="section-container glass-effect">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+                <p>Let's discuss data solutions</p>
+            </div>
+
+            <div class="contact-wrapper">
+                <form class="contact-form" id="secureForm">
+                    <input type="text" name="honeypot" style="display:none">
+
+                    <div class="service-selector">
+                        <label>I'm looking for:</label>
+                        <div class="chip-group">
+                            <input type="checkbox" id="ml" name="service" value="ML">
+                            <label for="ml" class="chip">Machine Learning</label>
+
+                            <input type="checkbox" id="da" name="service" value="Analytics">
+                            <label for="da" class="chip">Analytics</label>
+
+                            <input type="checkbox" id="viz" name="service" value="Viz">
+                            <label for="viz" class="chip">Visualization</label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required pattern="[A-Za-z\s]{2,50}">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" name="message" placeholder="Tell me about your data goals..." rows="4" required></textarea>
+                    </div>
+
+                    <div class="hire-me-container">
+                        <button type="submit" class="submit-btn hire-btn">
+                            <span>Send Securely</span>
+                            <i class="arrow-icon">→</i>
+                        </button>
+                    </div>
+                    <p id="form-status"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Subham Raj. All Rights Reserved.</p>
+    </footer>
+
+    <script src="index.js"></script>
 </body>
 </html>
